@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 
 THREE.ColorManagement.enabled = false
 
@@ -8,7 +8,7 @@ THREE.ColorManagement.enabled = false
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -166,16 +166,16 @@ scene.add(floor)
  * Lights
  */
 // Ambient light
-const ambientLight = new THREE.AmbientLight('#b9d5ff', 0.12)
+const ambientLight = new THREE.AmbientLight('#b9d5ff', 0.5)
 scene.add(ambientLight)
 
 // Directional light
-const moonLight = new THREE.DirectionalLight('#b9d5ff', 0.12)
+const moonLight = new THREE.DirectionalLight('#b9d5ff', 0.3)
 moonLight.position.set(4, 5, - 2)
 scene.add(moonLight)
 
 // Door Light
-const doorLight = new THREE.PointLight('#ff7d46', 1, 7)
+const doorLight = new THREE.PointLight('#ff7d46', 2, 7)
 doorLight.position.set(0, 2.2, 2.7)
 house.add(doorLight)
 
@@ -309,7 +309,6 @@ const tick = () =>
 
     // Camera
     camera.position.x = Math.sin(elapsedTime * 0.1) * 8
-    // camera.position.z = Math.cos(elapsedTime * 0.1) * 10
     camera.lookAt(house.position)
 
     // Render
